@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xuanmama-cookies.github.io/sitemap.xml

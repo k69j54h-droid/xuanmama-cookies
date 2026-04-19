@@ -1,440 +1,225 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>璇媽手作烘培曲奇｜水果宅配｜雲林手工餅乾伴手禮</title>
-  <meta name="description" content="璇媽手工烘培曲奇伴手禮、春節禮盒、彌月禮盒、西式喜餅、兒童禮物、客製化包裝。雲林在地手作，新鮮宅配到府。">
-  <meta name="keywords" content="璇媽,手作曲奇,烘培,水果宅配,雲林,伴手禮,彌月禮盒,春節禮盒,手工餅乾,西式喜餅">
+  <title>璇媽手作烘培曲奇｜水果宅配｜雲林伴手禮</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="璇媽手工烘培曲奇伴手禮、春節禮盒、彌月禮盒、西式喜餅、客製化包裝。雲林在地手作，宅配到府。">
+  <meta name="keywords" content="璇媽,手作曲奇,烘培,水果宅配,雲林,伴手禮,彌月禮盒,春節禮盒,手工餅乾,西式喜餅,曲奇餅乾">
   <meta property="og:title" content="璇媽手作烘培曲奇｜水果宅配">
   <meta property="og:description" content="雲林在地手作曲奇餅乾，伴手禮、彌月禮盒、春節禮盒客製化。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://scontent.frmq1-1.fna.fbcdn.net/v/t39.30808-1/308624038_578473290737911_9042285130606125205_n.jpg">
-  <link rel="canonical" href="https://k69j54h-droid.github.io/xuanmama-cookies">
+  <meta property="og:url" content="https://k69j54h-droid.github.io/xuanmama-cookies/">
+  <link rel="canonical" href="https://k69j54h-droid.github.io/xuanmama-cookies/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "璇媽手作烘培曲奇",
     "description": "手工烘培曲奇伴手禮、彌月禮盒、春節禮盒、西式喜餅，雲林縣在地手作宅配",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "雲林縣",
-      "addressCountry": "TW"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "訂購",
-      "description": "Line ID: ksgeeshain"
-    },
+    "address": {"@type": "PostalAddress", "addressRegion": "雲林縣", "addressCountry": "TW"},
     "sameAs": ["https://www.facebook.com/p/100057257358264/"]
   }
   </script>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
-      background: #fdf8f3;
-      color: #3d2c1e;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #8b4513 0%, #c8813c 100%);
-      color: white;
-      padding: 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    .header-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 20px 16px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 3px solid rgba(255,255,255,0.6);
-      object-fit: cover;
-      background: #fff3e0;
-    }
-    .header-text h1 {
-      font-size: 1.6rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-    .header-text p {
-      font-size: 0.85rem;
-      opacity: 0.85;
-      margin-top: 2px;
-    }
-    nav {
-      background: rgba(0,0,0,0.15);
-      border-top: 1px solid rgba(255,255,255,0.2);
-    }
-    nav ul {
-      max-width: 1000px;
-      margin: 0 auto;
-      list-style: none;
-      display: flex;
-      padding: 0 20px;
-    }
-    nav ul li a {
-      display: block;
-      padding: 10px 16px;
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: background 0.2s;
-    }
-    nav ul li a:hover { background: rgba(255,255,255,0.15); border-radius: 4px; }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #fff8f0, #ffecd9);
-      border-bottom: 2px solid #f0d5b5;
-      padding: 40px 20px;
+    /* 客製化覆蓋 */
+    #header .logo { letter-spacing: 0.1em; }
+    .posts article header h2 a { font-size: 1.1em; }
+    .post-meta { font-size: 0.8em; color: #aaa; margin-bottom: 0.5em; }
+    .contact-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2em;
       text-align: center;
+      margin: 2em 0;
     }
-    .hero h2 {
-      font-size: 1.8rem;
-      color: #8b4513;
-      margin-bottom: 10px;
+    .contact-box .line-id {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 0.05em;
+      margin: 0.5em 0;
     }
-    .hero p {
-      color: #6b4c30;
-      font-size: 1rem;
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-    .hero-tags span {
+    .tag-list { margin: 1em 0; }
+    .tag-list span {
       display: inline-block;
-      background: #8b4513;
-      color: white;
-      padding: 4px 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
-      font-size: 0.8rem;
-      margin: 4px;
+      padding: 0.2em 0.8em;
+      font-size: 0.8em;
+      margin: 0.2em;
     }
-
-    /* Main */
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      color: #8b4513;
-      border-left: 4px solid #c8813c;
-      padding-left: 12px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    /* Info cards */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .info-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(139,69,19,0.1);
-      border: 1px solid #f0d5b5;
-    }
-    .info-card .icon { font-size: 2rem; margin-bottom: 8px; }
-    .info-card h3 { font-size: 1rem; color: #8b4513; margin-bottom: 6px; }
-    .info-card p { font-size: 0.85rem; color: #6b4c30; line-height: 1.5; }
-
-    /* Posts */
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .post-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(139,69,19,0.1);
-      border: 1px solid #f0d5b5;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .post-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(139,69,19,0.15);
-    }
-    .post-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #fff3e0;
-    }
-    .post-card-body {
-      padding: 16px;
-    }
-    .post-date {
-      font-size: 0.75rem;
-      color: #999;
-      margin-bottom: 8px;
-    }
-    .post-message {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #3d2c1e;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .post-link {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.82rem;
-      color: #c8813c;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .post-link:hover { text-decoration: underline; }
-
-    /* Contact */
-    .contact-section {
-      background: linear-gradient(135deg, #8b4513, #c8813c);
-      color: white;
-      border-radius: 16px;
-      padding: 30px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .contact-section h2 { font-size: 1.4rem; margin-bottom: 12px; }
-    .contact-section p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 16px; }
-    .contact-btns a {
-      display: inline-block;
-      padding: 10px 24px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin: 6px;
-      transition: opacity 0.2s;
-    }
-    .contact-btns a:hover { opacity: 0.85; }
-    .btn-line { background: #00b900; color: white; }
-    .btn-fb { background: white; color: #1877f2; }
-
-    /* Footer */
-    footer {
-      background: #3d2c1e;
-      color: #c9a98a;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.82rem;
-      line-height: 1.8;
-    }
-
-    /* Loading */
-    #loading {
-      text-align: center;
-      padding: 40px;
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    /* Update badge */
-    .update-badge {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #2e7d32;
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    @media (max-width: 600px) {
-      .header-text h1 { font-size: 1.2rem; }
-      .hero h2 { font-size: 1.3rem; }
-      nav ul { gap: 0; }
-      nav ul li a { padding: 10px 10px; font-size: 0.82rem; }
-    }
+    #loading-msg { text-align: center; padding: 2em; color: #aaa; }
   </style>
 </head>
-<body>
+<body class="is-preload">
 
-<header>
-  <div class="header-inner">
-    <img class="logo" id="page-logo" src="" alt="璇媽手作烘培" onerror="this.style.display='none'">
-    <div class="header-text">
-      <h1>璇媽手作烘培曲奇</h1>
-      <p>水果宅配｜雲林在地手作｜伴手禮首選</p>
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+  <!-- Intro -->
+  <div id="intro">
+    <h1>璇媽手作<br>烘培曲奇</h1>
+    <p>雲林在地手作 ● 水果宅配 ● 伴手禮首選<br>
+    彌月禮盒 ● 春節禮盒 ● 西式喜餅 ● 客製化包裝</p>
+    <div class="tag-list">
+      <span>🍪 手工曲奇</span>
+      <span>🎁 伴手禮</span>
+      <span>🌙 彌月禮盒</span>
+      <span>🧧 春節禮盒</span>
+      <span>🚚 宅配到府</span>
     </div>
+    <ul class="actions">
+      <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">開始瀏覽</a></li>
+    </ul>
   </div>
-  <nav>
-    <ul>
-      <li><a href="#posts">最新消息</a></li>
+
+  <!-- Header -->
+  <header id="header">
+    <a href="index.html" class="logo">璇媽手作烘培</a>
+  </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+      <li class="active"><a href="index.html">最新消息</a></li>
       <li><a href="#products">產品介紹</a></li>
       <li><a href="#contact">訂購方式</a></li>
     </ul>
+    <ul class="icons">
+      <li><a href="https://www.facebook.com/p/100057257358264/" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+    </ul>
   </nav>
-</header>
 
-<section class="hero">
-  <h2>🍪 新鮮手作，甜蜜每一刻</h2>
-  <p>璇媽手工烘培，用心製作每一片曲奇餅乾。<br>
-  伴手禮、彌月禮盒、春節禮盒、西式喜餅，客製化包裝，宅配到府。</p>
-  <div class="hero-tags">
-    <span>🎁 伴手禮</span>
-    <span>🌙 彌月禮盒</span>
-    <span>🧧 春節禮盒</span>
-    <span>💍 西式喜餅</span>
-    <span>🎀 客製化包裝</span>
-    <span>🚚 宅配到府</span>
+  <!-- Main -->
+  <div id="main">
+
+    <!-- Products Section -->
+    <section id="products">
+      <article class="post featured">
+        <header class="major">
+          <h2>關於璇媽</h2>
+          <p>雲林縣在地手作烘培，用心製作每一片曲奇餅乾。<br>
+          新鮮食材、精緻包裝，是您送禮的最佳選擇。</p>
+        </header>
+        <div class="tag-list" style="text-align:center; margin-bottom:1.5em;">
+          <span>🍪 各式口味曲奇餅乾</span>
+          <span>🎁 精美禮盒包裝</span>
+          <span>🌙 彌月答謝禮</span>
+          <span>💍 西式喜餅</span>
+          <span>🧧 節慶限定禮盒</span>
+          <span>🍓 新鮮水果宅配</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Posts (FB 貼文) -->
+    <section class="posts" id="fb-posts">
+      <div id="loading-msg">載入粉絲專頁最新消息中...</div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <article class="post">
+        <header>
+          <h2>訂購方式</h2>
+        </header>
+        <div class="contact-box">
+          <p>歡迎透過以下方式訂購，規格大小盒皆可客製！</p>
+          <p>📱 Line 加好友訂購</p>
+          <div class="line-id">ID：ksgeeshain</div>
+          <p style="margin-top:1em;">也可至 Facebook 粉絲專頁留言訂購</p>
+          <ul class="actions" style="justify-content:center; margin-top:1.5em;">
+            <li><a href="https://www.facebook.com/p/100057257358264/" class="button" target="_blank">📘 前往粉絲專頁</a></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
   </div>
-</section>
 
-<main>
+  <!-- Footer -->
+  <footer id="footer">
+    <section class="split contact">
+      <section>
+        <h3>地區</h3>
+        <p>雲林縣</p>
+      </section>
+      <section>
+        <h3>Line 訂購</h3>
+        <p>ID：ksgeeshain</p>
+      </section>
+      <section>
+        <h3>社群</h3>
+        <ul class="icons alt">
+          <li><a href="https://www.facebook.com/p/100057257358264/" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+        </ul>
+      </section>
+    </section>
+  </footer>
 
-  <section id="products">
-    <h2 class="section-title">產品類別</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="icon">🍪</div>
-        <h3>手工曲奇餅乾</h3>
-        <p>各式口味，酥脆香甜，大小規格皆可訂製</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🎁</div>
-        <h3>伴手禮禮盒</h3>
-        <p>精美包裝，送禮自用兩相宜</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🌙</div>
-        <h3>彌月禮盒</h3>
-        <p>客製化彌月答謝禮，溫馨又大方</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🧧</div>
-        <h3>節慶禮盒</h3>
-        <p>春節、中秋等節慶限定禮盒</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">💍</div>
-        <h3>西式喜餅</h3>
-        <p>婚禮必備，甜蜜分享喜悅</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🍓</div>
-        <h3>水果宅配</h3>
-        <p>新鮮在地水果，直送到家</p>
-      </div>
-    </div>
-  </section>
+  <!-- Copyright -->
+  <div id="copyright">
+    <ul>
+      <li>璇媽手作烘培曲奇 © 2024</li>
+      <li>網站內容自動同步自 Facebook 粉絲專頁</li>
+    </ul>
+  </div>
 
-  <section id="posts">
-    <h2 class="section-title">
-      最新消息
-      <span class="update-badge" id="update-time">同步中...</span>
-    </h2>
-    <div id="loading">載入中...</div>
-    <div class="posts-grid" id="posts-container"></div>
-  </section>
+</div>
 
-  <section id="contact">
-    <div class="contact-section">
-      <h2>📦 立即訂購</h2>
-      <p>歡迎私訊 Facebook 粉絲專頁、文章留言，或加 Line 好友洽詢訂購！<br>
-      規格大小盒皆可訂製，量大歡迎詢價。</p>
-      <div class="contact-btns">
-        <a class="btn-line" href="https://line.me/ti/p/ksgeeshain" target="_blank">💬 Line 訂購<br><small>ID: ksgeeshain</small></a>
-        <a class="btn-fb" href="https://www.facebook.com/p/100057257358264/" target="_blank">📘 Facebook 粉絲專頁</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>璇媽手作烘培曲奇&水果宅配 © 2024</p>
-  <p>雲林縣 ｜ Line: ksgeeshain ｜ <a href="https://www.facebook.com/p/100057257358264/" style="color:#c9a98a">Facebook 粉絲專頁</a></p>
-  <p style="margin-top:8px; font-size:0.75rem; opacity:0.6">網站內容自動同步自 Facebook 粉絲專頁</p>
-</footer>
-
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 <script>
+// 載入 FB 貼文
 async function loadPosts() {
   try {
     const res = await fetch('./data/posts.json?t=' + Date.now());
     const posts = await res.json();
+    const section = document.getElementById('fb-posts');
+    const loading = document.getElementById('loading-msg');
+    if (loading) loading.remove();
 
-    const container = document.getElementById('posts-container');
-    const loading = document.getElementById('loading');
-    const updateTime = document.getElementById('update-time');
-
-    loading.style.display = 'none';
-
-    // 設定 logo
-    const logoPost = posts.find(p => p.image);
-    if (logoPost) {
-      document.getElementById('page-logo').src = logoPost.image;
-    }
-
-    // 顯示更新時間
-    if (posts.length > 0) {
-      const latest = posts[0];
-      updateTime.textContent = '已同步';
-    }
-
-    // 顯示貼文
     posts.forEach(post => {
-      if (!post.message && !post.image) return;
-
-      const card = document.createElement('div');
-      card.className = 'post-card';
-
-      const imgHtml = post.image
-        ? `<img src="${post.image}" alt="璇媽手作" loading="lazy" onerror="this.style.display='none'">`
-        : '';
-
+      if (!post.message) return;
+      const msg = (post.message || '').replace(/&amp;/g, '&').replace(/<[^>]+>/g, '');
       const dateStr = post.created_time
         ? new Date(post.created_time).toLocaleDateString('zh-TW')
         : '';
+      const imgHtml = post.image
+        ? `<a href="${post.url || '#'}" target="_blank" class="image fit"><img src="${post.image}" alt="璇媽手作" loading="lazy" onerror="this.parentElement.style.display='none'"></a>`
+        : '';
 
-      const msg = (post.message || '').replace(/&amp;/g, '&').replace(/<[^>]+>/g, '');
-
-      card.innerHTML = `
+      const article = document.createElement('article');
+      article.innerHTML = `
+        <header>
+          <div class="post-meta">${dateStr}</div>
+          <h2><a href="${post.url || '#'}" target="_blank">璇媽最新消息</a></h2>
+        </header>
         ${imgHtml}
-        <div class="post-card-body">
-          <div class="post-date">${dateStr}</div>
-          <div class="post-message">${msg}</div>
-          ${post.url ? `<a class="post-link" href="${post.url}" target="_blank">→ 查看完整內容</a>` : ''}
-        </div>
+        <p>${msg.substring(0, 200)}${msg.length > 200 ? '...' : ''}</p>
+        ${post.url ? `<ul class="actions special"><li><a href="${post.url}" class="button" target="_blank">查看完整內容</a></li></ul>` : ''}
       `;
-      container.appendChild(card);
+      section.appendChild(article);
     });
 
     if (posts.length === 0) {
-      container.innerHTML = '<p style="color:#999;padding:20px">暫無貼文資料</p>';
+      section.innerHTML = '<p style="text-align:center;color:#aaa">暫無貼文，請稍後再來</p>';
     }
-
   } catch(e) {
-    document.getElementById('loading').textContent = '載入失敗，請稍後再試';
-    console.error(e);
+    document.getElementById('loading-msg').textContent = '無法載入最新消息';
   }
 }
-
 loadPosts();
 </script>
-
 </body>
 </html>

@@ -12,8 +12,9 @@
   <meta property="og:url" content="https://k69j54h-droid.github.io/xuanmama-cookies/">
   <meta name="google-site-verification" content="NQdbJtvSNZrMLpoed0Wn8XDSk4DiygEGhJDUOThQitc" />
   <link rel="canonical" href="https://k69j54h-droid.github.io/xuanmama-cookies/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"LocalBusiness","name":"璇媽手作烘培曲奇","description":"雲林手工曲奇餅乾，伴手禮、彌月禮盒、春節禮盒、西式喜餅，客製化包裝，全台宅配","address":{"@type":"PostalAddress","addressRegion":"雲林縣","addressCountry":"TW"},"sameAs":["https://www.facebook.com/p/100057257358264/"],"priceRange":"$$","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"5651"}}
@@ -23,377 +24,816 @@
   </script>
 
   <style>
+    /* ── VARIABLES (Luxury Palette) ── */
     :root {
-      --primary:   #C8813C;
-      --primary-d: #8B4513;
-      --accent:    #E8C547;
-      --bg:        #FFF8F2;
-      --bg2:       #FFF0E0;
-      --text:      #2C1810;
-      --text-s:    #6B4C30;
+      --gold:      #B8964E;
+      --gold-l:    #D4AF6A;
+      --gold-pale: #F5EDD8;
+      --cream:     #FDFAF6;
+      --cream-d:   #F2EAD8;
+      --brown:     #3E2A18;
+      --brown-m:   #6B4C2A;
+      --brown-l:   #A0784A;
       --white:     #FFFFFF;
-      --card-shadow: 0 4px 24px rgba(139,69,19,.10);
-      --radius: 16px;
+      --black:     #0D0D0D;
+      --grey:      #8A8A8A;
+      --border:    #E2D4C0;
+      --ff-serif:  'Cormorant Garamond', 'Noto Serif TC', serif;
+      --ff-sans:   'Noto Sans TC', sans-serif;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.7;
+      font-family: var(--ff-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .gold-line {
+      display: block; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--ff-sans);
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 600; line-height: 1.3;
+      color: var(--brown);
+    }
+    .section-sub {
+      font-size: .92rem; color: var(--brown-l);
+      margin-top: 10px; font-weight: 300;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--brown);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: .75rem;
+      letter-spacing: .1em;
+    }
+    .top-bar a { color: var(--gold-l); text-decoration: none; }
 
     /* ── HEADER ── */
     header {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--white);
-      border-bottom: 2px solid var(--bg2);
-      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(253,250,246,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      max-width: 1140px; margin: 0 auto;
     }
-    .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-img {
-      width: 52px; height: 52px; border-radius: 50%;
-      object-fit: cover; border: 3px solid var(--primary);
+    .logo {
+      text-decoration: none; text-align: center;
+      flex: 0 0 auto;
     }
-    .logo-text { line-height: 1.2; }
-    .logo-text strong { display: block; font-size: 1.1rem; color: var(--primary-d); font-weight: 900; }
-    .logo-text span { font-size: .75rem; color: var(--text-s); }
-    nav { display: flex; gap: 6px; }
+    .logo-zh {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--brown); letter-spacing: .05em;
+      display: block; line-height: 1;
+    }
+    .logo-en {
+      font-size: .65rem; letter-spacing: .3em;
+      color: var(--gold); text-transform: uppercase;
+      display: block; margin-top: 3px;
+    }
+    .logo-divider {
+      width: 40px; height: 1px;
+      background: var(--gold); margin: 4px auto;
+    }
+    nav {
+      display: flex; align-items: center; gap: 32px;
+    }
     nav a {
-      padding: 8px 14px; border-radius: 25px;
-      font-size: .88rem; font-weight: 700; color: var(--text-s);
-      text-decoration: none; transition: all .2s;
+      font-size: .8rem; letter-spacing: .12em;
+      text-transform: uppercase; font-weight: 500;
+      color: var(--brown-m); text-decoration: none;
+      position: relative; padding-bottom: 3px;
+      transition: color .2s;
     }
-    nav a:hover, nav a.active { background: var(--primary); color: #fff; }
-    .nav-cta {
-      background: var(--primary) !important; color: #fff !important;
-      box-shadow: 0 3px 10px rgba(200,129,60,.35);
+    nav a::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 100%;
+      height: 1px; background: var(--gold);
+      transition: right .3s;
+    }
+    nav a:hover { color: var(--brown); }
+    nav a:hover::after { right: 0; }
+    .nav-order {
+      background: var(--brown); color: #fff !important;
+      padding: 10px 22px; border-radius: 0;
+      letter-spacing: .15em; font-size: .75rem !important;
+      transition: background .2s !important;
+    }
+    .nav-order::after { display: none !important; }
+    .nav-order:hover { background: var(--gold) !important; color: var(--brown) !important; }
+    .nav-logo-img {
+      width: 42px; height: 42px; border-radius: 50%;
+      object-fit: cover; border: 1px solid var(--border);
     }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--primary-d) 0%, var(--primary) 60%, #E8A55A 100%);
-      color: #fff; text-align: center;
-      padding: 80px 24px 90px;
+      min-height: 92vh;
+      display: grid; place-items: center;
+      background: var(--cream-d);
       position: relative; overflow: hidden;
+      padding: 80px 32px;
     }
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute; inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="40" fill="rgba(255,255,255,.03)"/><circle cx="80" cy="80" r="60" fill="rgba(255,255,255,.03)"/></svg>');
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,150,78,.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(62,42,24,.05) 0%, transparent 60%);
     }
-    .hero-content { position: relative; max-width: 700px; margin: 0 auto; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
-      border-radius: 25px; padding: 4px 16px; font-size: .8rem; margin-bottom: 16px;
+    .hero-ornament {
+      position: absolute; top: 10%; left: 50%;
+      transform: translateX(-50%);
+      width: 1px; height: 80px;
+      background: linear-gradient(180deg, transparent, var(--gold));
+    }
+    .hero-content {
+      position: relative; text-align: center;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      font-size: .72rem; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 24px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; flex: 0 0 40px; height: 1px; background: var(--gold);
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700; line-height: 1.2;
-      margin-bottom: 16px;
+      font-family: var(--ff-serif);
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 600; line-height: 1.15;
+      color: var(--brown); margin-bottom: 8px;
+      letter-spacing: .02em;
     }
-    .hero p {
-      font-size: clamp(.95rem, 2vw, 1.1rem);
-      opacity: .9; margin-bottom: 28px; line-height: 1.8;
+    .hero h1 em {
+      font-style: italic; color: var(--gold);
+      display: block; font-size: .65em;
+      letter-spacing: .08em;
     }
-    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
-    .hero-tags span {
-      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
-      border-radius: 20px; padding: 5px 14px; font-size: .82rem;
+    .hero-desc {
+      font-size: 1rem; color: var(--brown-l);
+      margin: 24px 0 36px;
+      line-height: 1.9; font-weight: 300;
     }
-    .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .hero-tags {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 10px; margin-bottom: 40px;
+    }
+    .hero-tag {
+      font-size: .72rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--brown-m);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+    }
+    .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
     .btn {
-      display: inline-block; padding: 13px 28px;
-      border-radius: 30px; font-weight: 700; font-size: .95rem;
-      text-decoration: none; transition: all .2s; cursor: pointer; border: none;
+      font-size: .78rem; letter-spacing: .18em;
+      text-transform: uppercase; font-weight: 500;
+      text-decoration: none; padding: 14px 36px;
+      display: inline-block; transition: all .25s; cursor: pointer; border: none;
     }
-    .btn-white { background: #fff; color: var(--primary-d); box-shadow: 0 4px 14px rgba(0,0,0,.15); }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
-    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
-    .btn-outline:hover { background: rgba(255,255,255,.15); }
-    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(200,129,60,.4); }
-    .btn-primary:hover { background: var(--primary-d); transform: translateY(-2px); }
-    .btn-line { background: #00B900; color: #fff; }
+    .btn-dark { background: var(--brown); color: #fff; }
+    .btn-dark:hover { background: var(--gold); color: var(--brown); }
+    .btn-outline { border: 1px solid var(--brown); color: var(--brown); background: transparent; }
+    .btn-outline:hover { background: var(--brown); color: #fff; }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--brown); }
+    .btn-line-g { background: #00B900; color: #fff; }
+    .btn-line-g:hover { background: #009900; }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--brown); color: var(--gold-l);
+      padding: 14px 0; overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 60px;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track span {
+      font-size: .72rem; letter-spacing: .25em;
+      text-transform: uppercase; flex-shrink: 0;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* ── STATS ── */
-    .stats {
+    .stats-bar {
       background: var(--white);
-      border-bottom: 1px solid var(--bg2);
+      border-bottom: 1px solid var(--border);
     }
     .stats-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 24px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 8px;
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
     }
-    .stat { text-align: center; padding: 16px; }
-    .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--primary); display: block; }
-    .stat-label { font-size: .8rem; color: var(--text-s); }
-
-    /* ── SECTION ── */
-    .section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
-    .section-header { text-align: center; margin-bottom: 40px; }
-    .section-label {
-      display: inline-block;
-      background: var(--bg2); color: var(--primary-d);
-      border-radius: 25px; padding: 4px 16px;
-      font-size: .8rem; font-weight: 700; margin-bottom: 10px;
+    .stat-item {
+      text-align: center; padding: 32px 16px;
+      border-right: 1px solid var(--border);
     }
-    .section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; color: var(--text); }
-    .section-sub { color: var(--text-s); margin-top: 8px; font-size: .95rem; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--ff-serif);
+      font-size: 2.4rem; font-weight: 600;
+      color: var(--brown); display: block; line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--grey);
+      margin-top: 6px; display: block;
+    }
 
-    /* ── PRODUCTS GRID ── */
+    /* ── ABOUT / BRAND ── */
+    .brand-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .brand-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .brand-img-wrap {
+      position: relative;
+    }
+    .brand-img-wrap::before {
+      content: ''; position: absolute;
+      top: 20px; left: 20px; right: -20px; bottom: -20px;
+      border: 1px solid var(--gold);
+      z-index: 0;
+    }
+    .brand-img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; display: block;
+      position: relative; z-index: 1;
+    }
+    .brand-img-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: var(--cream-d);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; z-index: 1;
+    }
+    .brand-text { padding-left: 20px; }
+    .brand-text .section-label { margin-bottom: 16px; }
+    .brand-text .section-title { margin-bottom: 24px; }
+    .brand-text p {
+      font-size: .95rem; color: var(--brown-l);
+      line-height: 2; margin-bottom: 16px; font-weight: 300;
+    }
+    .brand-signature {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem; font-style: italic;
+      color: var(--gold); margin-top: 32px;
+    }
+
+    /* ── PRODUCTS ── */
+    .products-section {
+      padding: 100px 0;
+      background: var(--cream-d);
+    }
+    .products-header { text-align: center; margin-bottom: 60px; }
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
     }
-    .product-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 24px 16px; text-align: center;
-      box-shadow: var(--card-shadow);
-      border: 1px solid rgba(200,129,60,.1);
-      transition: transform .2s, box-shadow .2s;
+    .product-item {
+      background: var(--white);
+      padding: 48px 32px; text-align: center;
+      transition: background .3s;
     }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(139,69,19,.15); }
-    .product-icon { font-size: 2.4rem; margin-bottom: 10px; }
-    .product-card h3 { font-size: 1rem; font-weight: 700; color: var(--primary-d); margin-bottom: 6px; }
-    .product-card p { font-size: .82rem; color: var(--text-s); line-height: 1.5; }
+    .product-item:hover { background: var(--gold-pale); }
+    .product-num {
+      font-family: var(--ff-serif);
+      font-size: 2.5rem; color: var(--gold);
+      opacity: .3; display: block; line-height: 1;
+      margin-bottom: 16px;
+    }
+    .product-name {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem; font-weight: 600;
+      color: var(--brown); margin-bottom: 10px;
+    }
+    .product-desc {
+      font-size: .83rem; color: var(--grey);
+      line-height: 1.7; font-weight: 300;
+    }
 
-    /* ── PHOTO GALLERY ── */
+    /* ── GALLERY ── */
+    .gallery-section { padding: 100px 0; background: var(--cream); }
+    .gallery-header { text-align: center; margin-bottom: 60px; }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
+      gap: 8px;
     }
     .gallery-item {
-      border-radius: 12px; overflow: hidden;
-      aspect-ratio: 1; background: var(--bg2);
-      box-shadow: var(--card-shadow);
-      transition: transform .2s;
+      overflow: hidden; background: var(--cream-d);
+      cursor: pointer;
     }
-    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
     .gallery-item img {
       width: 100%; height: 100%;
       object-fit: cover; display: block;
+      transition: transform .6s ease, filter .3s;
+      filter: brightness(.98);
     }
-    .gallery-item:first-child {
-      grid-column: span 2; grid-row: span 2;
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(1.05); }
+
+    /* ── TESTIMONIAL / MARQUEE 2 ── */
+    .quote-section {
+      padding: 100px 0;
+      background: var(--brown);
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: var(--ff-serif);
+      font-size: 6rem; line-height: .5;
+      color: var(--gold); opacity: .3;
+    }
+    .quote-text {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-style: italic; color: var(--cream);
+      max-width: 720px; margin: 24px auto;
+      line-height: 1.6;
+    }
+    .quote-author {
+      font-size: .72rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--gold);
+      margin-top: 24px;
     }
 
     /* ── FAQ ── */
-    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-section { padding: 100px 0; background: var(--cream-d); }
+    .faq-header { text-align: center; margin-bottom: 60px; }
+    .faq-wrap { max-width: 760px; margin: 0 auto; }
     .faq-item {
-      background: var(--white); border-radius: 12px;
-      margin-bottom: 12px; overflow: hidden;
-      box-shadow: var(--card-shadow);
-      border: 1px solid rgba(200,129,60,.1);
+      border-top: 1px solid var(--border);
     }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
     .faq-q {
-      padding: 18px 22px; font-weight: 700; font-size: .95rem;
-      color: var(--primary-d); cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 22px 0;
+      cursor: pointer; font-weight: 500;
+      font-size: .95rem; color: var(--brown);
+      letter-spacing: .02em;
     }
-    .faq-q::after { content: '+'; font-size: 1.4rem; color: var(--primary); transition: transform .2s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-icon {
+      width: 28px; height: 28px; border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+      font-size: 1rem; color: var(--gold);
+      transition: transform .3s, background .3s;
+    }
+    .faq-item.open .faq-icon { background: var(--gold); color: #fff; transform: rotate(45deg); }
     .faq-a {
-      padding: 0 22px; max-height: 0; overflow: hidden;
-      transition: max-height .3s, padding .3s;
-      font-size: .9rem; color: var(--text-s);
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      font-size: .88rem; color: var(--grey);
+      line-height: 1.9; font-weight: 300;
     }
-    .faq-item.open .faq-a { max-height: 200px; padding: 0 22px 18px; }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 22px; }
 
     /* ── CONTACT ── */
     .contact-section {
-      background: linear-gradient(135deg, var(--primary-d), var(--primary));
-      border-radius: 24px; color: #fff;
-      padding: 56px 32px; text-align: center;
-      margin: 0 24px 60px;
-      box-shadow: 0 16px 48px rgba(139,69,19,.25);
+      padding: 100px 0;
+      background: var(--cream);
     }
-    .contact-section h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; }
-    .contact-section p { opacity: .9; margin-bottom: 24px; font-size: 1rem; }
-    .contact-line {
-      display: inline-block;
-      background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3);
-      border-radius: 12px; padding: 12px 28px; margin-bottom: 28px; font-size: 1.1rem;
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
     }
-    .contact-line strong { font-size: 1.4rem; display: block; }
-    .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .contact-left .section-title { margin-bottom: 20px; }
+    .contact-left p {
+      font-size: .92rem; color: var(--brown-l);
+      line-height: 2; font-weight: 300; margin-bottom: 32px;
+    }
+    .contact-info { margin-bottom: 36px; }
+    .contact-row {
+      display: flex; gap: 16px;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .contact-row-label {
+      font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold);
+      flex: 0 0 80px; padding-top: 2px;
+    }
+    .contact-row-val {
+      font-size: .92rem; color: var(--brown);
+      font-weight: 500;
+    }
+    .contact-btns-v { display: flex; flex-direction: column; gap: 12px; }
+    .contact-right {
+      background: var(--cream-d);
+      border: 1px solid var(--border);
+      padding: 48px 40px; text-align: center;
+    }
+    .contact-right-title {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem; color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .contact-right-sub {
+      font-size: .8rem; color: var(--grey);
+      letter-spacing: .08em; margin-bottom: 32px;
+    }
+    .contact-line-id {
+      font-family: var(--ff-serif);
+      font-size: 2.4rem; font-style: italic;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .contact-line-hint {
+      font-size: .75rem; color: var(--grey);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .contact-divider {
+      width: 60px; height: 1px;
+      background: var(--gold); margin: 32px auto;
+    }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--text); color: rgba(255,255,255,.6);
-      text-align: center; padding: 32px 24px;
-      font-size: .82rem; line-height: 2;
+      background: var(--brown);
+      color: rgba(255,255,255,.45);
+      padding: 60px 32px 32px;
     }
-    footer a { color: rgba(255,255,255,.7); text-decoration: none; }
-
-    /* ── BG SECTIONS ── */
-    .bg-cream { background: var(--bg2); }
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      font-family: var(--ff-serif);
+      font-size: 1.6rem; color: rgba(255,255,255,.8);
+      font-weight: 600;
+    }
+    .footer-brand span {
+      display: block; font-size: .65rem;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--gold-l); margin-top: 4px;
+    }
+    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: .75rem; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(255,255,255,.45);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold-l); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: .72rem; }
+    .footer-note { font-size: .68rem; opacity: .5; }
 
     /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      .header-inner { padding: 12px 16px; }
-      nav a { padding: 7px 10px; font-size: .82rem; }
-      .hero { padding: 56px 16px 64px; }
-      .section { padding: 48px 16px; }
-      .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
-      .contact-section { margin: 0 16px 48px; padding: 40px 20px; }
+    @media (max-width: 900px) {
+      .header-inner { padding: 14px 20px; }
+      nav { gap: 16px; }
+      nav a:not(.nav-order) { display: none; }
+      .brand-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .brand-img-wrap::before { display: none; }
+      .brand-text { padding-left: 0; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(5) { grid-column: span 1; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { flex-direction: column; gap: 24px; }
     }
-    @media (max-width: 480px) {
-      nav { display: none; }
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 20px; min-height: 80vh; }
+      .products-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+      .gallery-item:nth-child(1) { grid-column: span 2; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .contact-right { padding: 32px 24px; }
+      .hero-ornament { display: none; }
     }
   </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  雲林在地手作烘培 &nbsp;·&nbsp; 全台宅配到府 &nbsp;·&nbsp;
+  Line 訂購：<a href="https://line.me/ti/p/~ksgeeshain">ksgeeshain</a>
+</div>
+
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a class="logo-area" href="#">
-      <img class="logo-img" id="logo-img" src="" alt="璇媽" onerror="this.style.display='none'">
-      <div class="logo-text">
-        <strong>璇媽手作烘培</strong>
-        <span>雲林｜曲奇餅乾｜水果宅配</span>
-      </div>
+    <nav>
+      <a href="#about">品牌故事</a>
+      <a href="#products">產品系列</a>
+      <a href="#gallery">作品欣賞</a>
+    </nav>
+    <a href="#" class="logo">
+      <span class="logo-zh">璇媽手作</span>
+      <div class="logo-divider"></div>
+      <span class="logo-en">Artisan Bakery</span>
     </a>
     <nav>
-      <a href="#gallery">作品欣賞</a>
-      <a href="#products">產品</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">立即訂購</a>
+      <a href="#faq">常見問題</a>
+      <a href="#contact">聯絡我們</a>
+      <a href="#contact" class="nav-order">立即訂購</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
   <div class="hero-content">
-    <div class="hero-badge">🌟 雲林在地手作烘培</div>
-    <h1>璇媽手作曲奇<br>每一口都是用心</h1>
-    <p>手工烘培曲奇餅乾，新鮮食材、精緻包裝<br>
-    伴手禮・彌月禮盒・春節禮盒・西式喜餅<br>
-    全台宅配，讓甜蜜直送您身邊</p>
+    <div class="hero-eyebrow">Yunlin · Taiwan · Handmade</div>
+    <h1>
+      璇媽手作烘培
+      <em>Artisan · Since 雲林</em>
+    </h1>
+    <p class="hero-desc">
+      每一片曲奇，都是對品質的堅持<br>
+      伴手禮・彌月禮盒・春節禮盒・西式喜餅<br>
+      <span style="letter-spacing:.05em">客製化包裝，全台宅配到府</span>
+    </p>
     <div class="hero-tags">
-      <span>🍪 手工曲奇</span>
-      <span>🎁 客製化禮盒</span>
-      <span>🌙 彌月禮盒</span>
-      <span>🧧 春節禮盒</span>
-      <span>💍 西式喜餅</span>
-      <span>🚚 全台宅配</span>
+      <span class="hero-tag">手工曲奇</span>
+      <span class="hero-tag">客製禮盒</span>
+      <span class="hero-tag">彌月禮盒</span>
+      <span class="hero-tag">西式喜餅</span>
+      <span class="hero-tag">全台宅配</span>
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-white">立即訂購</a>
-      <a href="#gallery" class="btn btn-outline">查看作品</a>
+      <a href="#contact" class="btn btn-dark">立即訂購</a>
+      <a href="#gallery" class="btn btn-outline">欣賞作品</a>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat"><span class="stat-num">5,651</span><span class="stat-label">粉絲專頁按讚</span></div>
-    <div class="stat"><span class="stat-num">290+</span><span class="stat-label">顧客討論中</span></div>
-    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">手工製作</span></div>
-    <div class="stat"><span class="stat-num">全台</span><span class="stat-label">宅配到府</span></div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <span>手工曲奇餅乾</span><span>·</span>
+    <span>彌月禮盒</span><span>·</span>
+    <span>春節禮盒</span><span>·</span>
+    <span>西式喜餅</span><span>·</span>
+    <span>伴手禮</span><span>·</span>
+    <span>客製化包裝</span><span>·</span>
+    <span>全台宅配</span><span>·</span>
+    <span>雲林在地手作</span><span>·</span>
+    <span>Handmade Cookies</span><span>·</span>
+    <span>Gift Box</span><span>·</span>
+    <span>手工曲奇餅乾</span><span>·</span>
+    <span>彌月禮盒</span><span>·</span>
+    <span>春節禮盒</span><span>·</span>
+    <span>西式喜餅</span><span>·</span>
+    <span>伴手禮</span><span>·</span>
+    <span>客製化包裝</span><span>·</span>
+    <span>全台宅配</span><span>·</span>
+    <span>雲林在地手作</span><span>·</span>
+    <span>Handmade Cookies</span><span>·</span>
+    <span>Gift Box</span><span>·</span>
   </div>
 </div>
 
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">5,651</span><span class="stat-label">Fans · 粉絲按讚</span></div>
+    <div class="stat-item"><span class="stat-num">290+</span><span class="stat-label">Reviews · 顧客好評</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Handmade · 純手工</span></div>
+    <div class="stat-item"><span class="stat-num">全台</span><span class="stat-label">Delivery · 宅配到府</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="brand-section" id="about">
+  <div class="container">
+    <div class="brand-inner">
+      <div class="brand-img-wrap">
+        <div class="brand-img-placeholder" id="brand-img-wrap">🍪</div>
+      </div>
+      <div class="brand-text">
+        <span class="section-label">Our Story · 品牌故事</span>
+        <h2 class="section-title">用心製作<br>每一口都是幸福</h2>
+        <p>璇媽手作烘培，源自雲林縣的在地手工烘培品牌。秉持對品質的堅持與對味道的熱情，每一片曲奇餅乾都由璇媽親手製作，使用嚴選食材，不含人工添加物。</p>
+        <p>從一份小小的手作心意，到成為超過五千位顧客信賴的伴手禮首選，璇媽的每個禮盒，都承載著對收禮者最真誠的祝福。</p>
+        <div class="brand-signature">璇媽 Xuan Mama</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRODUCTS -->
-<div class="bg-cream">
-  <div class="section" id="products">
-    <div class="section-header">
-      <div class="section-label">產品系列</div>
-      <h2 class="section-title">精心製作，每款都是心意</h2>
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="products-header">
+      <span class="section-label">Our Collections · 產品系列</span>
+      <h2 class="section-title">精心之作，每款都是禮物</h2>
       <p class="section-sub">規格大小盒皆可訂製，歡迎洽詢</p>
     </div>
     <div class="products-grid">
-      <div class="product-card"><div class="product-icon">🍪</div><h3>手工曲奇餅乾</h3><p>多種口味，酥脆香甜，現烤新鮮</p></div>
-      <div class="product-card"><div class="product-icon">🎁</div><h3>伴手禮禮盒</h3><p>精美包裝，送禮大方有質感</p></div>
-      <div class="product-card"><div class="product-icon">🌙</div><h3>彌月禮盒</h3><p>客製化彌月答謝禮，溫馨難忘</p></div>
-      <div class="product-card"><div class="product-icon">🧧</div><h3>春節禮盒</h3><p>年節限定，送禮自用兩相宜</p></div>
-      <div class="product-card"><div class="product-icon">💍</div><h3>西式喜餅</h3><p>婚禮必備，甜蜜分享幸福</p></div>
-      <div class="product-card"><div class="product-icon">🍓</div><h3>水果宅配</h3><p>雲林在地新鮮水果直送到家</p></div>
+      <div class="product-item">
+        <span class="product-num">01</span>
+        <div class="product-name">手工曲奇餅乾</div>
+        <p class="product-desc">多種口味，酥脆香甜<br>現烤新鮮，風味絕佳</p>
+      </div>
+      <div class="product-item">
+        <span class="product-num">02</span>
+        <div class="product-name">伴手禮禮盒</div>
+        <p class="product-desc">精美包裝設計<br>送禮大方有質感</p>
+      </div>
+      <div class="product-item">
+        <span class="product-num">03</span>
+        <div class="product-name">彌月禮盒</div>
+        <p class="product-desc">客製化彌月答謝禮<br>溫馨傳遞心意</p>
+      </div>
+      <div class="product-item">
+        <span class="product-num">04</span>
+        <div class="product-name">春節禮盒</div>
+        <p class="product-desc">年節限定款式<br>送禮自用兩相宜</p>
+      </div>
+      <div class="product-item">
+        <span class="product-num">05</span>
+        <div class="product-name">西式喜餅</div>
+        <p class="product-desc">婚禮必備<br>甜蜜分享幸福時刻</p>
+      </div>
+      <div class="product-item">
+        <span class="product-num">06</span>
+        <div class="product-name">水果宅配</div>
+        <p class="product-desc">雲林在地新鮮水果<br>直送到您府上</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- GALLERY -->
-<div class="section" id="gallery">
-  <div class="section-header">
-    <div class="section-label">作品欣賞</div>
-    <h2 class="section-title">璇媽手作實拍</h2>
-    <p class="section-sub">每一件都是用心之作</p>
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-label">Gallery · 作品欣賞</span>
+      <h2 class="section-title">璇媽手作實拍</h2>
+      <p class="section-sub">每一件都是用心之作</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey);font-size:.85rem;letter-spacing:.1em">LOADING GALLERY ...</div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://www.facebook.com/p/100057257358264/" target="_blank" class="btn btn-outline">查看更多作品 →</a>
+    </div>
   </div>
-  <div class="gallery-grid" id="gallery-grid">
-    <div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa">載入圖片中...</div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">每一片曲奇，都是璇媽對烘培的熱情與對顧客的真誠——用最好的食材，做最用心的禮物。</p>
+    <div class="quote-author">· Xuan Mama Artisan Bakery · Yunlin, Taiwan ·</div>
   </div>
-</div>
+</section>
 
 <!-- FAQ -->
-<div class="bg-cream">
-  <div class="section" id="faq">
-    <div class="section-header">
-      <div class="section-label">常見問題</div>
-      <h2 class="section-title">您想知道的都在這裡</h2>
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-label">FAQ · 常見問題</span>
+      <h2 class="section-title">您想知道的</h2>
     </div>
-    <div class="faq-list">
+    <div class="faq-wrap">
       <div class="faq-item">
-        <div class="faq-q">雲林手工曲奇餅乾可以全台宅配嗎？</div>
+        <div class="faq-q">雲林手工曲奇餅乾可以全台宅配嗎？<span class="faq-icon">+</span></div>
         <div class="faq-a">可以！璇媽提供全台宅配服務，新鮮手作直送到府，讓您不出門也能品嚐雲林在地好味道。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">彌月禮盒可以客製化包裝嗎？</div>
+        <div class="faq-q">彌月禮盒可以客製化包裝嗎？<span class="faq-icon">+</span></div>
         <div class="faq-a">可以，大小盒規格皆可訂製，包裝樣式多元，可加入寶寶姓名、出生日期等客製內容，歡迎加 Line 洽詢。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">春節禮盒何時截單？</div>
+        <div class="faq-q">春節禮盒何時截單？<span class="faq-icon">+</span></div>
         <div class="faq-a">節慶前訂單量大，建議提前 2-3 週預訂，詳情請私訊 Facebook 粉絲專頁或加 Line 詢問。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">西式喜餅最少訂幾份？</div>
+        <div class="faq-q">西式喜餅最少訂幾份？<span class="faq-icon">+</span></div>
         <div class="faq-a">歡迎直接詢問，依需求彈性配合，量多另有優惠，歡迎加 Line ID：ksgeeshain 洽詢。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">如何訂購璇媽手作曲奇？</div>
+        <div class="faq-q">如何訂購璇媽手作曲奇？<span class="faq-icon">+</span></div>
         <div class="faq-a">加 Line ID：ksgeeshain，或至 Facebook 粉絲專頁留言訂購，也可在蝦皮賣場預定。</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <h2>🛒 立即訂購</h2>
-  <p>歡迎加 Line 好友或 Facebook 粉絲專頁留言<br>規格大小盒皆可訂製，量大另有優惠</p>
-  <div class="contact-line">
-    📱 Line 加好友<strong>ID：ksgeeshain</strong>
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <span class="section-label">Contact · 聯絡訂購</span>
+        <h2 class="section-title">開始您的<br>專屬訂製</h2>
+        <p>歡迎透過 Line 或 Facebook 與璇媽聯繫，規格大小盒皆可訂製，量大另有優惠，期待為您打造專屬的甜蜜禮物。</p>
+        <div class="contact-info">
+          <div class="contact-row">
+            <span class="contact-row-label">地區</span>
+            <span class="contact-row-val">雲林縣・全台宅配</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Line</span>
+            <span class="contact-row-val">ksgeeshain</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row-label">Facebook</span>
+            <span class="contact-row-val">璇媽手作烘培曲奇&水果宅配</span>
+          </div>
+        </div>
+        <div class="contact-btns-v">
+          <a href="https://line.me/ti/p/~ksgeeshain" class="btn btn-line-g" target="_blank">💬 加 Line 好友訂購</a>
+          <a href="https://www.facebook.com/p/100057257358264/" class="btn btn-dark" target="_blank">📘 Facebook 粉絲專頁</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-right-title">Line 快速訂購</div>
+        <div class="contact-right-sub">QUICK ORDER VIA LINE</div>
+        <div class="gold-line" style="width:60px;margin-bottom:32px"></div>
+        <div class="contact-line-id">ksgeeshain</div>
+        <div class="contact-line-hint">Line ID · 加好友即可訂購</div>
+        <a href="https://line.me/ti/p/~ksgeeshain" class="btn btn-line-g" target="_blank" style="width:100%;text-align:center">立即加入 Line 好友</a>
+        <div class="contact-divider"></div>
+        <p style="font-size:.8rem;color:var(--grey);line-height:1.8">
+          客製化禮盒請提前 1-2 週預訂<br>
+          節慶旺季建議提前 3 週以上<br>
+          歡迎詢問量大優惠方案
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="contact-btns">
-    <a href="https://line.me/ti/p/~ksgeeshain" class="btn btn-line" target="_blank">💬 加 Line 好友</a>
-    <a href="https://www.facebook.com/p/100057257358264/" class="btn btn-white" target="_blank">📘 Facebook 粉絲專頁</a>
-  </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong style="color:rgba(255,255,255,.85)">璇媽手作烘培曲奇 &amp; 水果宅配</strong></p>
-  <p>雲林縣 ｜ Line: ksgeeshain ｜ <a href="https://www.facebook.com/p/100057257358264/">Facebook 粉絲專頁</a></p>
-  <p style="margin-top:8px;opacity:.5;font-size:.75rem">網站內容自動同步自 Facebook 粉絲專頁</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          璇媽手作烘培
+          <span>Xuan Mama Artisan Bakery · Yunlin, Taiwan</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#about">品牌故事</a>
+        <a href="#products">產品系列</a>
+        <a href="#gallery">作品欣賞</a>
+        <a href="#faq">常見問題</a>
+        <a href="#contact">聯絡訂購</a>
+        <a href="https://www.facebook.com/p/100057257358264/" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 璇媽手作烘培曲奇 &amp; 水果宅配. All rights reserved.</span>
+      <span class="footer-note">網站內容自動同步自 Facebook 粉絲專頁</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-// 載入圖片 gallery
+// Gallery 載入
 async function loadGallery() {
   try {
     const res = await fetch('./data/posts.json?t=' + Date.now());
@@ -401,33 +841,42 @@ async function loadGallery() {
     const grid = document.getElementById('gallery-grid');
     grid.innerHTML = '';
 
-    // Logo
-    const logoPost = posts.find(p => p.image && p.type === 'page_info');
-    if (logoPost) document.getElementById('logo-img').src = logoPost.image;
+    // Brand image
+    const pageInfo = posts.find(p => p.type === 'page_info' && p.image);
+    if (pageInfo) {
+      const wrap = document.getElementById('brand-img-wrap');
+      if (wrap) {
+        const img = document.createElement('img');
+        img.src = pageInfo.image;
+        img.alt = '璇媽手作烘培';
+        img.className = 'brand-img';
+        img.onerror = () => {};
+        wrap.replaceWith(img);
+      }
+    }
 
-    // 圖片
     const photos = posts.filter(p => p.image && p.image.length > 10);
-    if (photos.length === 0) {
-      grid.innerHTML = '<p style="text-align:center;color:#aaa;padding:40px">暫無圖片</p>';
+    if (!photos.length) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey)">請同步 Facebook 圖片</div>';
       return;
     }
-    photos.forEach((post, i) => {
+    photos.slice(0, 12).forEach((p, i) => {
       const div = document.createElement('div');
       div.className = 'gallery-item';
-      div.innerHTML = `<img src="${post.image}" alt="璇媽手作曲奇烘培" loading="lazy" onerror="this.parentElement.style.display='none'">`;
-      div.addEventListener('click', () => window.open(post.url || '#', '_blank'));
+      div.innerHTML = `<img src="${p.image}" alt="璇媽手作曲奇烘培禮盒" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+      div.onclick = () => window.open(p.url || 'https://www.facebook.com/p/100057257358264/', '_blank');
       grid.appendChild(div);
     });
   } catch(e) {
-    document.getElementById('gallery-grid').innerHTML = '<p style="text-align:center;color:#aaa;padding:40px">圖片載入失敗</p>';
+    document.getElementById('gallery-grid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey)">圖片載入中...</div>';
   }
 }
 
-// FAQ 互動
+// FAQ
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
-    document.querySelectorAll('.faq-item.open').forEach(o => { if(o !== item) o.classList.remove('open'); });
+    document.querySelectorAll('.faq-item.open').forEach(o => { if(o!==item) o.classList.remove('open'); });
     item.classList.toggle('open');
   });
 });

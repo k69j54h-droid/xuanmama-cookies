@@ -1,0 +1,34 @@
+name: 每日 SEO 文章自動發布
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # 台灣時間每天早上 09:00 (UTC 01:00)
+  workflow_dispatch:        # 可在 GitHub 手動觸發
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 設定 Git 身份
+        run: |
+          git config user.name "璇媽SEO機器人"
+          git config user.email "k69j54h@gmail.com"
+
+      - name: 執行每日文章發布
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python _scripts/daily_content.py
+
+      - name: 確認狀態
+        run: git log --oneline -3

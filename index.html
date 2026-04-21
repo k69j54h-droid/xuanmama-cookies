@@ -641,8 +641,8 @@
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item"><span class="stat-num">5,651</span><span class="stat-label">Fans · 粉絲按讚</span></div>
-    <div class="stat-item"><span class="stat-num">290+</span><span class="stat-label">Reviews · 顧客好評</span></div>
+    <div class="stat-item"><span class="stat-num" id="stat-fans">5,652</span><span class="stat-label">Fans · 粉絲按讚</span></div>
+    <div class="stat-item"><span class="stat-num" id="stat-reviews">290+</span><span class="stat-label">Reviews · 顧客好評</span></div>
     <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Handmade · 純手工</span></div>
     <div class="stat-item"><span class="stat-num">全台</span><span class="stat-label">Delivery · 宅配到府</span></div>
   </div>
@@ -919,8 +919,22 @@ async function loadGallery() {
     // 優先用本機暖色調照片，fallback 到 FB CDN
     const imgSrc = p => p.image_local || p.image || '';
 
-    // Brand image
+    // 動態更新粉絲數與好評數
     const pageInfo = posts.find(p => p.type === 'page_info');
+    if (pageInfo && pageInfo.message) {
+      const fansMatch = pageInfo.message.match(/([\d,]+)\s*個讚/);
+      if (fansMatch) {
+        const el = document.getElementById('stat-fans');
+        if (el) el.textContent = fansMatch[1];
+      }
+      const reviewMatch = pageInfo.message.match(/([\d,]+)\s*人正在談論/);
+      if (reviewMatch) {
+        const el = document.getElementById('stat-reviews');
+        if (el) el.textContent = reviewMatch[1] + '+';
+      }
+    }
+
+    // Brand image
     if (pageInfo && imgSrc(pageInfo)) {
       const wrap = document.getElementById('brand-img-wrap');
       if (wrap) {

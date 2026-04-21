@@ -916,21 +916,24 @@ async function loadGallery() {
     const grid = document.getElementById('gallery-grid');
     grid.innerHTML = '';
 
+    // 優先用本機暖色調照片，fallback 到 FB CDN
+    const imgSrc = p => p.image_local || p.image || '';
+
     // Brand image
-    const pageInfo = posts.find(p => p.type === 'page_info' && p.image);
-    if (pageInfo) {
+    const pageInfo = posts.find(p => p.type === 'page_info');
+    if (pageInfo && imgSrc(pageInfo)) {
       const wrap = document.getElementById('brand-img-wrap');
       if (wrap) {
         const img = document.createElement('img');
-        img.src = pageInfo.image;
+        img.src = imgSrc(pageInfo);
         img.alt = '璇媽手作烘培';
         img.className = 'brand-img';
-        img.onerror = () => {};
+        img.onerror = () => { img.src = pageInfo.image || ''; };
         wrap.replaceWith(img);
       }
     }
 
-    const photos = posts.filter(p => p.image && p.image.length > 10);
+    const photos = posts.filter(p => (p.image_local || p.image) && p.type !== 'page_info');
     if (!photos.length) {
       grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey)">請同步 Facebook 圖片</div>';
       return;
@@ -938,7 +941,8 @@ async function loadGallery() {
     photos.slice(0, 12).forEach((p, i) => {
       const div = document.createElement('div');
       div.className = 'gallery-item';
-      div.innerHTML = `<img src="${p.image}" alt="璇媽手作曲奇烘培禮盒" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+      const src = imgSrc(p);
+      div.innerHTML = `<img src="${src}" alt="璇媽手作曲奇烘培禮盒" loading="lazy" onerror="this.src='${p.image||''}';this.onerror=null;">`;
       div.onclick = () => window.open(p.url || 'https://www.facebook.com/p/100057257358264/', '_blank');
       grid.appendChild(div);
     });

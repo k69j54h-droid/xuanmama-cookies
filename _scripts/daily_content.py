@@ -44,7 +44,8 @@ FB_URL    = "https://www.facebook.com/p/100057257358264/"
 def load_templates():
     sys.path.insert(0, str(Path(__file__).parent))
     from content_templates import TEMPLATES
-    return TEMPLATES
+    from content_templates_2 import TEMPLATES_2
+    return TEMPLATES + TEMPLATES_2  # 120 篇，永不重複
 
 # ── 讀取發布紀錄 ──────────────────────────────
 def load_log():
